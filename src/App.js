@@ -1,23 +1,56 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
+import Dropdown from './components/Functional/Dropdown';
+
 function App() {
+  const [selectedAnimal, setAnimal] = useState({
+    url: 'bird.png',
+    name: 'Bird'
+  })
+
+  const onChange = (data) => {
+    setAnimal(data);
+  }
+
+  const data = [
+    {
+      id: '1',
+      name: 'Tiger',
+      url: 'tiger.png',
+    },
+    {
+      id: '2',
+      name: 'Lion',
+      url: 'lion.png',
+    },
+    {
+      id: '3',
+      name: 'Leopard',
+      url: 'Leopard.png'
+    },
+    {
+      id: '4',
+      name: 'Elephant',
+      url: 'elephant.png'
+    },
+    {
+      id: '5',
+      name: 'Bird',
+      url: 'bird.png'
+    },
+
+  ]
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app" id='app'
+      style={{ backgroundImage: `url(${selectedAnimal.url})` }}>
+      <span className="name">{selectedAnimal.name}</span>
+      <Dropdown
+        data={data}
+        onChange={onChange}
+      />
     </div>
   );
 }
