@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-import Dropdown from './components/Functional/Dropdown';
+import Dropdown from './components/Dropdown/Dropdown';
 
 function App() {
   const [selectedAnimal, setAnimal] = useState({
